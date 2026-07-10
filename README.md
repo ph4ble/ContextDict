@@ -1,145 +1,51 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/tisfeng/ImageBed/main/uPic/icon_512x512@2x.png" height="256">
-  <h1 align="center">ContextDict</h1>
-  <h4 align="center">Context-aware dictionary and translation for macOS</h4>
-<p align="center"> 
-<a href="https://github.com/tisfeng/easydict/blob/main/LICENSE">
-<img src="https://img.shields.io/github/license/tisfeng/easydict"
-            alt="License"></a>
-<a href="https://github.com/tisfeng/Easydict/releases">
-<img src="https://img.shields.io/github/downloads/tisfeng/easydict/total.svg"
-            alt="Downloads"></a>
-<a href="https://img.shields.io/badge/-macOS-black?&logo=apple&logoColor=white">
-<img src="https://img.shields.io/badge/-macOS-black?&logo=apple&logoColor=white"
-            alt="macOS"></a>  
-</p>
+# ContextDict
 
-<div align="center">
-<a href="./README_ZH.md">中文</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="./readme-es.md">Español</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="./README.md">English</a>
-</div>
+> Context-aware dictionary and translation for macOS.
 
-## ContextDict
+[![License](https://img.shields.io/github/license/ph4ble/ContextDict)](./LICENSE)
+[![Platform](https://img.shields.io/badge/platform-macOS%2013%2B-black?logo=apple)](https://www.apple.com/macos/)
 
-`ContextDict` is a macOS dictionary and translation app maintained by ph4ble. It is a GPL-3.0 fork of [EasyDict](https://github.com/tisfeng/Easydict).
+[中文](./README_ZH.md)
 
-In addition to EasyDict's translation and lookup features, ContextDict can use the source sentence around a selected word or phrase to explain its meaning in context. This requires an enabled AI dictionary service and is limited to applications that expose both the selection and surrounding text through macOS Accessibility.
+ContextDict is a macOS dictionary and translation application maintained by **ph4ble**. It is a GPL-3.0 fork of [EasyDict](https://github.com/tisfeng/Easydict), focused on explaining the meaning of a selected word or phrase in its actual sentence.
 
-See [FORK_NOTICE.md](./FORK_NOTICE.md) for attribution, upstream information, and license obligations.
+## Contextual Lookup
 
-**Supported translation services:** [**🍎 Apple Dictionary**](./docs/en/How-to-use-macOS-system-dictionary-in-Easydict.md), [🍎 **Apple Translate**](./docs/en/How-to-use-macOS-system-translation-in-Easydict.md), [OpenAI](https://chat.openai.com/), [Gemini](https://gemini.google.com/), [DeepSeek](https://www.deepseek.com/), [Ollama](https://ollama.com/), [Groq](https://groq.com/), [Zhipu AI](https://open.bigmodel.cn/), [GitHub Models](https://github.com/marketplace/models), [DeepL](https://www.deepl.com/translator), [Google](https://translate.google.com), [Youdao](https://www.youdao.com/), [Tencent](https://fanyi.qq.com/), [Bing](https://www.bing.com/translator), [Baidu](https://fanyi.baidu.com/), [Niutrans](https://niutrans.com/), [Caiyun](https://fanyi.caiyunapp.com/), [Alibaba](https://translate.alibaba.com/), [Volcano](https://translate.volcengine.com/translate) and [Doubao](https://www.volcengine.com/docs/82379/1820188).
+When you select a word or phrase, ContextDict attempts to obtain its surrounding sentence through macOS Accessibility. With an enabled AI dictionary service, it asks for:
 
-![Log](https://raw.githubusercontent.com/tisfeng/ImageBed/main/uPic/Log-1688378715.png)
+- the precise contextual meaning of the selected term;
+- a brief explanation of why that meaning fits;
+- a translation of the complete sentence; and
+- other common meanings only when they help distinguish the context.
 
-<table>
-    <td> <img src="https://raw.githubusercontent.com/tisfeng/ImageBed/main/uPic/iShot_2023-05-28_16.32.18-1685262784.png">
-    <td> <img src="https://raw.githubusercontent.com/tisfeng/ImageBed/main/uPic/iShot_2023-05-28_16.32.26-1685262803.png">
-</table>
-
-![immerse-1686534718.gif](https://raw.githubusercontent.com/tisfeng/ImageBed/main/uPic/immerse-1686534718.gif)
+This is deliberately conservative. If the source application cannot provide a reliable sentence and selection range, ContextDict falls back to the regular dictionary query instead of guessing.
 
 ## Features
 
-- 🚀 Out of the box, automatic language recognition
-- 🖱️ Auto select with mouse and shortcut key
-- 📸 OCR screenshot translation and slient screenshot OCR
-- 🔊 Multiple TTS voice services
-- 📚 Support 🍎 [Apple System Dictionary](./docs/en/How-to-use-macOS-system-dictionary-in-Easydict.md) and [System Translation](./docs/en/How-to-use-macOS-system-translation-in-Easydict.md)
-- 🌐 Support 20+ translation services (OpenAI, Gemini, DeepL, Google, Ollama, Groq, etc.)
-- 🗣️ Support for 48 languages
-- 🔎 Explain a selected word or phrase from its source sentence when context is available
+- Context-aware explanation for selected words and phrases
+- A privacy control for contextual lookup; when enabled, the selected term and source sentence are sent only to the AI dictionary service you enable
+- Mouse selection and shortcut-based lookup
+- Text translation, screenshot OCR, and silent OCR
+- Apple Dictionary and Apple Translate integration
+- Configurable AI, translation, and TTS services
+- Separate ContextDict application identity, bundle identifier, and URL scheme
 
-**If you like this app, please consider giving it a [Star](https://github.com/tisfeng/Easydict) ⭐️, thanks! (^-^)**
+## Getting Started
 
-## Contributing
+1. Build and launch ContextDict on macOS 13 or later.
+2. Grant the requested Accessibility and AppleScript permissions for supported applications.
+3. In Settings, enable an AI dictionary service and configure its credentials.
+4. In Settings > General, keep **Contextual Lookup** enabled.
+5. Select a word or phrase in an application that exposes its full text through Accessibility.
 
-If you're interested in this project, we welcome your contributions. Our development follows this workflow:
+The first independent DMG release will be published in this repository's Releases page after local build verification.
 
-- **dev branch**: Latest development code, may contain features in progress
-- **main branch**: Stable release code, regularly merged from dev branch
+## Development
 
-Please submit bug fixes and features to dev branch; for major new features or UI changes, please open an issue for discussion first. See [full contribution guide](./docs/en/GUIDE.md#contributor-guide).
-
-### AI Coding
-
-We recommend using `Codex` for AI-assisted development in Easydict, especially for codebase exploration, issue diagnosis, patch generation, and refactoring.
-
-- Prefer the latest available GPT models, such as `GPT-5.4`.
-- Review AI-generated changes carefully before opening a PR, and make sure the result matches this repository's contribution workflow and coding standards.
-
-#### AI Commit Helper
-
-This repository supports `Codex` and `Claude` for automatic commit message generation.
-
-- Stage your changes first, then run `$git-commit`.
-- The command drafts an Angular-style English commit message from the staged diff and provides a Simplified Chinese preview.
-- No commit is created until you explicitly approve the generated message.
-
-## Issue/PR Triage Notes
-
-The maintainer has been quite busy recently and usually only has time to triage issues on weekends. PRs (especially bugfix PRs) are prioritized. Also, due to an overloaded inbox and notifications, some messages may not be seen or replied to promptly. Thanks for your understanding.
-
-## Installation
-
-### Build from Source
-
-ContextDict does not publish an independent release yet. Build this fork from source using the [developer build guide](./docs/en/GUIDE.md#developer-build). Do not install the EasyDict Homebrew cask when you intend to use ContextDict.
-
----
-
-## Usage
-
-| Ways                      | Description                                                                                                                                  | Preview                                                                                                                                        |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| Input Translate           | Press the input translate shortcut key (default `⌥ + A`), enter the text to be translated, and `Enter` key to translate          | ![iShot_2023-01-20_11.28.46-1674185354](https://raw.githubusercontent.com/tisfeng/ImageBed/main/uPic/iShot_2023-01-20_11.28.46-1674185354.gif) |
-| Mouse Select Translate    | The query icon is automatically displayed after the word is selected, and the mouse hovers over it to query                                  | ![iShot_2023-01-20_11.01.35-1674183779](https://raw.githubusercontent.com/tisfeng/ImageBed/main/uPic/iShot_2023-01-20_11.01.35-1674183779.gif) |
-| Shortcut Select Translate | After selecting the text to be translated, press the shortcut key (default `⌥ + D`)                                                          | ![iShot_2023-01-20_11.24.37-1674185125](https://raw.githubusercontent.com/tisfeng/ImageBed/main/uPic/iShot_2023-01-20_11.24.37-1674185125.gif) |
-| Screenshot Translate      | Press the screenshot translate shortcut key (default `⌥ + S`) to capture the area to be translated                                           | ![iShot_2023-01-20_11.26.25-1674185209](https://raw.githubusercontent.com/tisfeng/ImageBed/main/uPic/iShot_2023-01-20_11.26.25-1674185209.gif) |
-| Silent Screenshot OCR     | Press the Silent Screenshot shortcut key（default `⌥ + ⇧ + S`）to capture the area, the OCR results will be copied directly to the clipboard | ![屏幕录制 2023-05-20 22 39 11](https://github.com/Jerry23011/Easydict/assets/89069957/c16f3c20-1748-411e-be04-11d8fe0e61af)                     |
-
----
-
-## Documentation
-
-- 📖 [Complete Usage Guide](./docs/en/GUIDE.md) - Detailed features, configuration and tips
-- 🔧 [Developer Build Guide](./docs/en/GUIDE.md#developer-build) - Build and run from source code
-- 🍎 [How to use macOS System Dictionary](./docs/en/How-to-use-macOS-system-dictionary-in-Easydict.md)
-- 🍎 [How to use macOS System Translation](./docs/en/How-to-use-macOS-system-translation-in-Easydict.md)
-- 🌍 [How to translate Easydict](./docs/How-to-translate-Easydict-en.md)
-
----
-
-## Acknowledgements
-
-- This project was inspired by [saladict](https://github.com/crimx/ext-saladict) and [Bob](https://github.com/ripperhe/Bob), and the initial version was made based on [Bob (GPL-3.0)](https://github.com/1xiaocainiao/Bob). Easydict has made many improvements and optimizations on the original project, and many features and UI are referenced from Bob.
-- Screenshot feature is based on [isee15](https://github.com/isee15)'s [Capture-Screen-For-Multi-Screens-On-Mac](https://github.com/isee15/Capture-Screen-For-Multi-Screens-On-Mac), and optimized on this project.
-- Select text feature is referenced from [PopClip](https://pilotmoon.com/popclip/).
+ContextDict is currently developed on the `dev` branch. A local build requires the full Xcode application, not only the macOS Command Line Tools. Refer to the upstream [developer build guide](./docs/en/GUIDE.md#developer-build) for project dependencies and build setup.
 
 ## License and Attribution
 
-ContextDict is licensed under the [GPL-3.0](./LICENSE). It is derived from EasyDict by tisfeng; EasyDict's copyright notices and GPL-3.0 license remain in this repository. ContextDict modifications are maintained by ph4ble.
+ContextDict is licensed under [GPL-3.0](./LICENSE). It is derived from EasyDict, originally created and maintained by tisfeng. EasyDict's copyright notices, acknowledgements, and GPL-3.0 obligations are retained. ContextDict-specific modifications are maintained by ph4ble.
 
-## Sponsor
-
-Easydict is a free and open source project, currently mainly developed and maintained by the author. If you like this project and find it helpful, you can consider sponsoring this project to support it, so that it can go further.
-
-Thanks to [@CanglongCl](https://github.com/CanglongCl) for providing the Apple Developer account, which solved the app [signature issue](https://github.com/tisfeng/Easydict/issues/2), allowing more people to use Easydict conveniently.
-
-<a href="https://afdian.com/a/tisfeng"><img width="20%" src="https://pic1.afdiancdn.com/static/img/welcome/button-sponsorme.jpg" alt=""></a>
-
-<div>
-  <img src="https://raw.githubusercontent.com/tisfeng/ImageBed/main/uPic/IMG_4739-1684680971.JPG" width="30%">
-</div>
-
-Thanks to all sponsors for their generous support. For details, please see the [Sponsor List](./docs/en/SPONSOR_LIST.md).
-
----
-
-## Star History
-
-<a href="https://star-history.com/#tisfeng/easydict&Date">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=tisfeng/easydict&type=Date&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=tisfeng/easydict&type=Date" />
-    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=tisfeng/easydict&type=Date" />
-  </picture>
-</a>
+See [FORK_NOTICE.md](./FORK_NOTICE.md) for the upstream baseline and modification notice.
