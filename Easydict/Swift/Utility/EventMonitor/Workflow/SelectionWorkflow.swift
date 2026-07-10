@@ -44,6 +44,7 @@ final class SelectionWorkflow {
                 let text = try await systemUtility.getSelectedText(strategy: .accessibility)?.trim() ?? ""
                 let editable = systemUtility.isFocusedTextField()
                 isSelectedTextEditable = editable
+                let contextualSentence = await systemUtility.focusedElementInfo().contextualSentence
                 let frontmostBundleID = frontmostApp?.bundleIdentifier ?? ""
                 let isBrowser = AppleScriptTask.isBrowserSupportingAppleScript(frontmostBundleID)
                 let preferAppleScript = MyConfiguration.shared.preferAppleScriptAPI
@@ -57,7 +58,8 @@ final class SelectionWorkflow {
                             .init(
                                 text: text,
                                 selectTextType: .accessibility,
-                                isEditable: editable
+                                isEditable: editable,
+                                contextualSentence: contextualSentence
                             )
                         )
                         return
@@ -87,7 +89,12 @@ final class SelectionWorkflow {
                     return
                 }
 
-                completion(.init(text: text, selectTextType: .accessibility, isEditable: editable))
+                completion(.init(
+                    text: text,
+                    selectTextType: .accessibility,
+                    isEditable: editable,
+                    contextualSentence: contextualSentence
+                ))
             } catch let error as NSError {
                 let axError = AXError(rawValue: Int32(error.code)) ?? .failure
                 handleForceGetSelectedTextOnAXError(axError: axError, completion: completion)

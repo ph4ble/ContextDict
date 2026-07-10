@@ -17072,6 +17072,72 @@
         }
       }
     },
+    "contextual_lookup.enable" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Explain selected words using sentence context"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根据上下文解释划词"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "依上下文解釋選取文字"
+          }
+        }
+      }
+    },
+    "contextual_lookup.header" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contextual Lookup"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上下文释义"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上下文釋義"
+          }
+        }
+      }
+    },
+    "contextual_lookup.privacy" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "When an AI dictionary service is enabled, the selected term and its source sentence are sent to that service. If the source app cannot provide a full sentence, ContextDict uses the regular dictionary query instead."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启用 AI 词典服务后，所选词或词组及其所在句子会发送给该服务。来源应用无法提供完整句子时，ContextDict 会自动回退为普通词典查询。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "啟用 AI 詞典服務後，所選詞語及其所在句子會傳送至該服務。來源應用無法提供完整句子時，ContextDict 會自動改用一般詞典查詢。"
+          }
+        }
+      }
+    },
     "zhipu_translate" : {
       "localizations" : {
         "en" : {

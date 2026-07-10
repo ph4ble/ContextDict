@@ -12,6 +12,12 @@ import Magnet
 
 /// Utils
 extension Defaults.Keys {
+    /// Enables ContextDict's selected-term meaning prompt when a complete
+    /// sentence can be resolved from the source application's accessibility text.
+    static let enableContextualLookup = Key<Bool>(
+        "ContextDictEnableContextualLookup", default: true
+    )
+
     /// is first launch
     static let firstLaunch = Key<Bool>("EZConfiguration_kFirstLaunch", default: true)
 }

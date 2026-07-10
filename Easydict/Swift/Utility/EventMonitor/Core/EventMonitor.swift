@@ -58,6 +58,7 @@ final class EventMonitor: NSObject {
     // MARK: Public Properties (ObjC visible)
 
     var selectedText: String = ""
+    var contextualSentence: String?
     var actionType: ActionType = .autoSelectQuery
     var selectTextType: EZSelectTextType = .accessibility
     var triggerType: EZTriggerType = []
@@ -90,9 +91,11 @@ final class EventMonitor: NSObject {
             if let snapshot {
                 selectTextType = snapshot.selectTextType
                 isSelectedTextEditable = snapshot.isEditable
+                contextualSentence = snapshot.contextualSentence
                 handleSelectedText(snapshot.text)
             } else {
                 isSelectedTextEditable = selectionWorkflow.isSelectedTextEditable
+                contextualSentence = nil
             }
             completion(snapshot?.text)
         }
@@ -486,8 +489,10 @@ final class EventMonitor: NSObject {
                 if let snapshot {
                     self.selectTextType = snapshot.selectTextType
                     self.isSelectedTextEditable = snapshot.isEditable
+                    self.contextualSentence = snapshot.contextualSentence
                 } else {
                     self.isSelectedTextEditable = self.selectionWorkflow.isSelectedTextEditable
+                    self.contextualSentence = nil
                 }
                 self.handleSelectedText(snapshot?.text)
             }

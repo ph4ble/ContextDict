@@ -1,7 +1,7 @@
 <p align="center">
   <img src="https://raw.githubusercontent.com/tisfeng/ImageBed/main/uPic/icon_512x512@2x.png" height="256">
-  <h1 align="center">Easydict</h1>
-  <h4 align="center"> Easy to look up words or translate text</h4>
+  <h1 align="center">ContextDict</h1>
+  <h4 align="center">面向上下文的 macOS 词典与翻译工具</h4>
 <p align="center"> 
 <a href="https://github.com/tisfeng/easydict/blob/main/LICENSE">
 <img src="https://img.shields.io/github/license/tisfeng/easydict"
@@ -18,11 +18,13 @@
 <a href="./README_ZH.md">中文</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="./README.md">English</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="./readme-es.md">Español</a>
 </div>
 
-## Easydict
+## ContextDict
 
-`Easydict` 是一个简洁易用的词典翻译 macOS App，能够轻松优雅地查找单词或翻译文本。
+`ContextDict` 是由 ph4ble 维护的 macOS 词典翻译应用，基于 [EasyDict](https://github.com/tisfeng/Easydict) 的 GPL-3.0 fork。
 
-Easydict 开箱即用，能自动识别输入文本语言，支持输入翻译、划词翻译和 OCR 截图翻译，可同时查询多个翻译服务结果。
+除 EasyDict 原有的翻译和查词能力外，ContextDict 会在可获得当前句子时，结合语境解释所选单词或词组的准确含义。该功能需要启用 AI 词典服务；只有来源应用经 macOS 辅助功能同时提供划词和周边文本时才能生效。
+
+上游、署名和许可证义务见 [FORK_NOTICE.md](./FORK_NOTICE.md)。
 
 **支持的翻译服务：** [**🍎 苹果系统词典**](./docs/zh/How-to-use-macOS-system-dictionary-in-Easydict.md)、[🍎 **苹果系统翻译**](./docs/zh/How-to-use-macOS-system-translation-in-Easydict.md)、[OpenAI](https://chat.openai.com/)、[Gemini](https://gemini.google.com/)、[DeepSeek](https://www.deepseek.com/)、[Ollama](https://ollama.com/)、[Groq](https://groq.com/)、[智谱AI](https://open.bigmodel.cn/)、[GitHub Models](https://github.com/marketplace/models)、[DeepL](https://www.deepl.com/translator)、[Google](https://translate.google.com)、[有道词典](https://www.youdao.com/)、[腾讯](https://fanyi.qq.com/)、[Bing](https://www.bing.com/translator)、[百度](https://fanyi.baidu.com/)、[小牛翻译](https://niutrans.com/)、[彩云小译](https://fanyi.caiyunapp.com/)、[阿里翻译](https://translate.alibaba.com/)、[火山翻译](https://translate.volcengine.com/translate) 和 [豆包翻译](https://www.volcengine.com/docs/82379/1820188)。
 
@@ -44,6 +46,7 @@ Easydict 开箱即用，能自动识别输入文本语言，支持输入翻译�
 - 📚 支持 🍎 [苹果系统词典](./docs/zh/How-to-use-macOS-system-dictionary-in-Easydict.md) 和 [系统翻译](./docs/zh/How-to-use-macOS-system-translation-in-Easydict.md)
 - 🌐 支持 20+ 翻译服务（OpenAI、Gemini、DeepL、Google、Ollama、Groq 等）
 - 🗣️ 支持 48 种语言
+- 🔎 可根据所在句子解释所选单词或词组的语境义
 
 **如果觉得这个应用还不错，给个 [Star](https://github.com/tisfeng/Easydict) ⭐️ 支持一下吧 (^-^)**
 
@@ -77,18 +80,9 @@ Bug 修复和功能实现请提交到 dev 分支；新功能或大的 UI 变动�
 
 ## 安装
 
-### Homebrew 安装（推荐）
+### 从源码构建
 
-```bash
-brew install --cask easydict
-```
-
-### 手动下载安装
-
-[下载](https://github.com/tisfeng/Easydict/releases) 最新版本的 Easydict。
-
-> [!NOTE]
-> 最新版本支持 macOS 13.0+，如果系统版本为 macOS 11.0+，请使用 [2.7.2](https://github.com/tisfeng/Easydict/releases/tag/2.7.2)
+ContextDict 目前尚未发布独立安装包，请按[开发者构建指南](./docs/zh/GUIDE.md#开发者构建)从此 fork 构建。需要使用 ContextDict 时，不应安装 EasyDict 的 Homebrew cask。
 
 ---
 
@@ -120,9 +114,9 @@ brew install --cask easydict
 - 截图功能是基于 [isee15](https://github.com/isee15) 的 [Capture-Screen-For-Multi-Screens-On-Mac](https://github.com/isee15/Capture-Screen-For-Multi-Screens-On-Mac)，并在此基础上进行了优化。
 - 鼠标划词功能参考了 [PopClip](https://pilotmoon.com/popclip/)。
 
-## 声明
+## 许可证与署名
 
-Easydict 为 [GPL-3.0](https://github.com/tisfeng/Easydict/blob/main/LICENSE) 开源协议，仅供学习交流，任何人都可以免费获取该产品和源代码。如果你认为您的合法权益受到侵犯，请立即联系[作者](https://github.com/tisfeng)。你可以自由使用源代码，但必须附上相应的许可证和版权声明。
+ContextDict 使用 [GPL-3.0](./LICENSE) 协议，基于 tisfeng 的 EasyDict 衍生。仓库保留 EasyDict 的版权声明与 GPL-3.0 许可证；ContextDict 的修改由 ph4ble 维护。
 
 ## 赞助支持
 

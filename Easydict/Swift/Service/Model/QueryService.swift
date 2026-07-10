@@ -214,6 +214,7 @@ open class QueryService: NSObject {
     ///
     /// - NOTE: This function only returns the final result. For incremental results, use `startQueryStream(_:)`.
     open func startQuery(_ queryModel: QueryModel) async throws -> QueryResult {
+        attachContextualSelectionIfAvailable(to: queryModel)
         self.queryModel = queryModel
 
         let queryText = queryModel.queryText
@@ -230,6 +231,26 @@ open class QueryService: NSObject {
         }
 
         return try await translate(queryText, from: fromLanguage, to: targetLanguage)
+    }
+
+    private func attachContextualSelectionIfAvailable(to queryModel: QueryModel) {
+        // Query models may be reused by the input window. Never let a previous
+        // selection's sentence affect a later non-selection query.
+        queryModel.contextualSelectedText = nil
+        queryModel.contextualSentence = nil
+
+        guard Defaults[.enableContextualLookup],
+              queryModel.actionType == .autoSelectQuery || queryModel.actionType == .shortcutQuery,
+              !queryModel.queryText.isEmpty,
+              let selectedText = EventMonitor.shared.selectedText.trim(), !selectedText.isEmpty,
+              let sentence = EventMonitor.shared.contextualSentence?.trim(), !sentence.isEmpty,
+              sentence.localizedCaseInsensitiveContains(selectedText) else {
+            return
+        }
+        // Use the normalized query text so code-style selections and quoted
+        // phrases still match the query sent to the dictionary service.
+        queryModel.contextualSelectedText = queryModel.queryText
+        queryModel.contextualSentence = sentence
     }
 
     /// Starts a query and reports incremental results on the main thread.
@@ -285,6 +306,7 @@ open class QueryService: NSObject {
                     return
                 }
 
+                self.attachContextualSelectionIfAvailable(to: queryModel)
                 self.queryModel = queryModel
 
                 let queryText = queryModel.queryText

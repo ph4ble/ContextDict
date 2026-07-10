@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSAppleEventsUsageDescription</key>
-	<string>Easydict requires permission to execute AppleScript.</string>
+	<string>ContextDict requires permission to read selected text from supported applications and execute AppleScript when needed.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -32,10 +32,10 @@
 			<key>CFBundleURLIconFile</key>
 			<string>white-black-icon@2x</string>
 			<key>CFBundleURLName</key>
-			<string>com.izual.Easydict</string>
+			<string>com.ph4ble.ContextDict</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>easydict</string>
+				<string>contextdict</string>
 			</array>
 		</dict>
 	</array>
@@ -53,7 +53,7 @@
 		<true/>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2023-2025 tisfeng. All rights reserved.</string>
+	<string>Copyright © 2023-2025 tisfeng. Modifications © 2026 ph4ble. Licensed under GPL-3.0.</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>NSSupportsAutomaticTermination</key>
@@ -61,10 +61,10 @@
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
 	<key>SUFeedURL</key>
-	<string>https://raw.githubusercontent.com/tisfeng/Easydict/main/appcast.xml</string>
+	<string></string>
 	<key>SUPublicEDKey</key>
-	<string>9Ee1FtAsmJHFD79H4bToJhAOJmTtkTYIUDr23ofEWiU=</string>
+	<string></string>
 	<key>SUEnableAutomaticChecks</key>
-	<true/>
+	<false/>
 </dict>
 </plist>

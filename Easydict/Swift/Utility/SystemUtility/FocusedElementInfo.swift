@@ -72,6 +72,17 @@ struct FocusedElementInfo: CustomStringConvertible {
         return nil
     }
 
+    /// The sentence containing the current selection when the source exposes
+    /// both full text and an Accessibility selection range. This intentionally
+    /// returns nil rather than guessing when those inputs are unavailable.
+    var contextualSentence: String? {
+        guard let fullText, let selectedRange else { return nil }
+        return ContextSentenceResolver.sentence(
+            containingUTF16Range: selectedRange,
+            in: fullText
+        )
+    }
+
     /// Whether the focused element is a supported text input element
     var isSupportedAXElement: Bool {
         fullText?.isEmpty == false
@@ -93,5 +104,42 @@ struct FocusedElementInfo: CustomStringConvertible {
             roleValue: \(roleDesc)
         )
         """
+    }
+}
+
+enum ContextSentenceResolver {
+    static func sentence(containingUTF16Range range: CFRange, in text: String) -> String? {
+        guard range.location >= 0,
+              range.length > 0 else {
+            return nil
+        }
+
+        let utf16Count = CFIndex(text.utf16.count)
+        guard range.location <= utf16Count,
+              range.length <= utf16Count - range.location,
+              let startUTF16 = text.utf16.index(
+                  text.utf16.startIndex,
+                  offsetBy: range.location,
+                  limitedBy: text.utf16.endIndex
+              ),
+              let endUTF16 = text.utf16.index(
+                  startUTF16,
+                  offsetBy: range.length,
+                  limitedBy: text.utf16.endIndex
+              ),
+              let start = String.Index(startUTF16, within: text),
+              let end = String.Index(endUTF16, within: text) else {
+            return nil
+        }
+
+        let prefix = text[..<start]
+        let suffix = text[end...]
+        let sentenceStart = prefix.lastIndex(where: { ".!?。！？\n".contains($0) })
+            .map { text.index(after: $0) } ?? text.startIndex
+        let sentenceEnd = suffix.firstIndex(where: { ".!?。！？\n".contains($0) })
+            .map { text.index(after: $0) } ?? text.endIndex
+        let sentence = text[sentenceStart..<sentenceEnd]
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        return sentence.isEmpty ? nil : sentence
     }
 }

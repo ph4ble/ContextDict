@@ -28,8 +28,8 @@ static CGFloat const EZAudioButtonBottomMargin_4 = 4;
 static CGFloat const EZAudioButtonRightPadding_1 = 1;
 
 
-static NSString *const EZBundleId = @"com.izual.Easydict";
-static NSString *const EZDebugBundleId = @"com.izual.Easydict-debug";
+static NSString *const EZBundleId = @"com.ph4ble.ContextDict";
+static NSString *const EZDebugBundleId = @"com.ph4ble.ContextDict.debug";
 
 /// tisfeng/Easydict
 static NSString *const EZGithubRepoEasydict = @"tisfeng/Easydict";

@@ -48,7 +48,7 @@ struct EasydictApp: App {
                 .environment(\.locale, .init(identifier: I18nHelper.shared.localizeCode))
         } label: {
             Label {
-                Text("Easydict")
+                Text("ContextDict")
                     .openSettingsAccess() // trick way for open setting
                     .onReceive(
                         NotificationCenter.default.publisher(
@@ -71,7 +71,7 @@ struct EasydictApp: App {
                 #endif
                     .scaledToFit()
             }
-            .help("Easydict 🍃")
+            .help("ContextDict")
         }
         .menuBarExtraStyle(.menu)
         .commands {

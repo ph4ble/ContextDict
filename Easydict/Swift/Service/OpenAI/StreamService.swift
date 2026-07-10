@@ -494,6 +494,12 @@ public class StreamService: QueryService {
         }
 
         let enableDictionary = supportedQueryType().contains(.dictionary)
+        if enableDictionary, shouldUseContextualDictionaryPrompt {
+            // A selected phrase can be longer than the normal two-word
+            // dictionary heuristic, but it still needs the contextual prompt.
+            return .dictionary
+        }
+
         var isQueryDictionary = false
         if enableDictionary {
             isQueryDictionary = (text as NSString).shouldQueryDictionary(

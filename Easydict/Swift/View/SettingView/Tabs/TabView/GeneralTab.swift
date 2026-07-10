@@ -89,6 +89,15 @@ struct GeneralTab: View {
             }
 
             Section {
+                Toggle("contextual_lookup.enable", isOn: $enableContextualLookup)
+            } header: {
+                Text("contextual_lookup.header")
+            } footer: {
+                Text("contextual_lookup.privacy")
+                    .font(.footnote)
+            }
+
+            Section {
                 Toggle("auto_copy_selected_text", isOn: $autoCopySelectedText)
                 Toggle("auto_copy_ocr_text", isOn: $autoCopyOCRText)
                 Toggle("auto_copy_first_translated_text", isOn: $autoCopyFirstTranslatedText)
@@ -284,6 +293,7 @@ struct GeneralTab: View {
     @Default(.autoQueryOCRText) private var autoQueryOCRText
     @Default(.autoQuerySelectedText) private var autoQuerySelectedText
     @Default(.autoQueryPastedText) private var autoQueryPastedText
+    @Default(.enableContextualLookup) private var enableContextualLookup
     @Default(.autoPlayAudio) private var autoPlayAudio
     @Default(.pronunciation) private var pronunciation
 

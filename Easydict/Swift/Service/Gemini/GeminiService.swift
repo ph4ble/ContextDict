@@ -91,10 +91,14 @@ public final class GeminiService: StreamService {
 
             currentTask = Task {
                 do {
-                    let systemPrompt =
-                        queryType == .dictionary
-                            ? StreamService.dictSystemPrompt
-                            : StreamService.translationSystemPrompt
+                    let systemPrompt: String
+                    if queryType == .dictionary, shouldUseContextualDictionaryPrompt {
+                        systemPrompt = StreamService.contextualLookupSystemPrompt
+                    } else if queryType == .dictionary {
+                        systemPrompt = StreamService.dictSystemPrompt
+                    } else {
+                        systemPrompt = StreamService.translationSystemPrompt
+                    }
 
                     var enableSystemPromptInChats = false
                     var systemInstruction: ModelContent? = try ModelContent(

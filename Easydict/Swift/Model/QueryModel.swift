@@ -42,6 +42,8 @@ open class QueryModel: NSObject, NSCopying {
         model.specifiedTextLanguageDict = specifiedTextLanguageDict.mutableCopy() as? NSMutableDictionary
             ?? NSMutableDictionary()
         model.autoQuery = autoQuery
+        model.contextualSelectedText = contextualSelectedText
+        model.contextualSentence = contextualSentence
         return model
     }
 
@@ -52,6 +54,13 @@ open class QueryModel: NSObject, NSCopying {
 
     /// Selection type for text capture.
     var selectTextType: EZSelectTextType = .accessibility
+
+    /// The exact term selected by the user when a contextual lookup is active.
+    var contextualSelectedText: String?
+
+    /// The source sentence containing `contextualSelectedText`, captured through
+    /// Accessibility only when the range can be resolved without guessing.
+    var contextualSentence: String?
 
     /// User selected target language.
     var userTargetLanguage: Language = .auto

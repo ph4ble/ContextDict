@@ -8,37 +8,37 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Easydict"
+            "value" : "ContextDict"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Easydict"
+            "value" : "ContextDict"
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Easydict"
+            "value" : "ContextDict"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Easydict"
+            "value" : "ContextDict"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Easydict"
+            "value" : "ContextDict"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Easydict"
+            "value" : "ContextDict"
           }
         }
       }
@@ -50,37 +50,37 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Easydict"
+            "value" : "ContextDict"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Easydict"
+            "value" : "ContextDict"
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Easydict"
+            "value" : "ContextDict"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Easydict"
+            "value" : "ContextDict"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Easydict"
+            "value" : "ContextDict"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Easydict"
+            "value" : "ContextDict"
           }
         }
       }
@@ -92,37 +92,37 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Easydict requires permission to execute AppleScript."
+            "value" : "ContextDict requires permission to read selected text from supported applications and execute AppleScript when needed."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Easydict が AppleScript を実行するには権限が必要です。"
+            "value" : "ContextDict が対応アプリから選択テキストを読み取り、必要に応じて AppleScript を実行するには権限が必要です。"
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Easydict vyžaduje povolenie na vykonanie AppleScriptu."
+            "value" : "ContextDict vyžaduje povolenie na čítanie vybraného textu z podporovaných aplikácií a na vykonanie AppleScriptu podľa potreby."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Easydict 需要权限来执行 AppleScript。"
+            "value" : "ContextDict 需要权限来读取受支持应用中的选中文本，并在必要时执行 AppleScript。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Easydict 需要權限來執行 AppleScript。"
+            "value" : "ContextDict 需要權限來讀取支援應用程式中的選取文字，並在必要時執行 AppleScript。"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Easydict requiere permiso para ejecutar AppleScript."
+            "value" : "ContextDict requiere permiso para leer texto seleccionado de aplicaciones compatibles y ejecutar AppleScript cuando sea necesario."
           }
         }
       }
@@ -134,37 +134,37 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Copyright © 2023-2025 tisfeng. All rights reserved."
+            "value" : "Copyright © 2023-2025 tisfeng. Modifications © 2026 ph4ble. Licensed under GPL-3.0."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Copyright © 2023-2025 tisfeng. All rights reserved."
+            "value" : "Copyright © 2023-2025 tisfeng. Modifications © 2026 ph4ble. Licensed under GPL-3.0."
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Autorské práva © 2023-2025 tisfeng. Všetky práva vyhradené."
+            "value" : "Copyright © 2023-2025 tisfeng. Modifications © 2026 ph4ble. Licensed under GPL-3.0."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Copyright © 2023-2025 tisfeng. 保留一切权利。"
+            "value" : "Copyright © 2023-2025 tisfeng. Modifications © 2026 ph4ble. Licensed under GPL-3.0."
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Copyright © 2023-2025 tisfeng. 保留一切權利。"
+            "value" : "Copyright © 2023-2025 tisfeng. Modifications © 2026 ph4ble. Licensed under GPL-3.0."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Copyright © 2023-2025 tisfeng. Todos los derechos reservados."
+            "value" : "Copyright © 2023-2025 tisfeng. Modifications © 2026 ph4ble. Licensed under GPL-3.0."
           }
         }
       }

@@ -39,6 +39,10 @@ struct AboutTab: View {
                     Text(copyrightInfo)
                         .font(.system(size: 11))
                         .foregroundColor(.gray)
+
+                    Text("ContextDict is maintained by ph4ble and based on EasyDict.")
+                        .font(.system(size: 11))
+                        .foregroundColor(.gray)
                         .padding(.bottom, 20)
                 }
 
@@ -90,7 +94,7 @@ struct AboutTab: View {
     private var copyrightInfo: String {
         Bundle.main.localizedString(
             forKey: "NSHumanReadableCopyright",
-            value: "Copyright © 2023-2025 tisfeng. All rights reserved.",
+            value: "Copyright © 2023-2025 tisfeng. Modifications © 2026 ph4ble. Licensed under GPL-3.0.",
             table: "InfoPlist"
         )
     }
