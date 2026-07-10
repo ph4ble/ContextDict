@@ -1,145 +1,51 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/tisfeng/ImageBed/main/uPic/icon_512x512@2x.png" height="256">
-  <h1 align="center">ContextDict</h1>
-  <h4 align="center">面向上下文的 macOS 词典与翻译工具</h4>
-<p align="center"> 
-<a href="https://github.com/tisfeng/easydict/blob/main/LICENSE">
-<img src="https://img.shields.io/github/license/tisfeng/easydict"
-            alt="License"></a>
-<a href="https://github.com/tisfeng/Easydict/releases">
-<img src="https://img.shields.io/github/downloads/tisfeng/easydict/total.svg"
-            alt="Downloads"></a>
-<a href="https://img.shields.io/badge/-macOS-black?&logo=apple&logoColor=white">
-<img src="https://img.shields.io/badge/-macOS-black?&logo=apple&logoColor=white"
-            alt="macOS"></a>  
-</p>
+# ContextDict
 
-<div align="center">
-<a href="./README_ZH.md">中文</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="./README.md">English</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="./readme-es.md">Español</a>
-</div>
+> 面向语境的 macOS 词典与翻译工具。
 
-## ContextDict
+[![许可证](https://img.shields.io/github/license/ph4ble/ContextDict)](./LICENSE)
+[![平台](https://img.shields.io/badge/platform-macOS%2013%2B-black?logo=apple)](https://www.apple.com/macos/)
 
-`ContextDict` 是由 ph4ble 维护的 macOS 词典翻译应用，基于 [EasyDict](https://github.com/tisfeng/Easydict) 的 GPL-3.0 fork。
+[English](./README.md)
 
-除 EasyDict 原有的翻译和查词能力外，ContextDict 会在可获得当前句子时，结合语境解释所选单词或词组的准确含义。该功能需要启用 AI 词典服务；只有来源应用经 macOS 辅助功能同时提供划词和周边文本时才能生效。
+ContextDict 是由 **ph4ble** 维护的 macOS 词典翻译应用，基于 [EasyDict](https://github.com/tisfeng/Easydict) 的 GPL-3.0 fork。项目的重点是结合所在句子，解释划选单词或词组在当前语境中的准确含义。
 
-上游、署名和许可证义务见 [FORK_NOTICE.md](./FORK_NOTICE.md)。
+## 上下文释义
 
-**支持的翻译服务：** [**🍎 苹果系统词典**](./docs/zh/How-to-use-macOS-system-dictionary-in-Easydict.md)、[🍎 **苹果系统翻译**](./docs/zh/How-to-use-macOS-system-translation-in-Easydict.md)、[OpenAI](https://chat.openai.com/)、[Gemini](https://gemini.google.com/)、[DeepSeek](https://www.deepseek.com/)、[Ollama](https://ollama.com/)、[Groq](https://groq.com/)、[智谱AI](https://open.bigmodel.cn/)、[GitHub Models](https://github.com/marketplace/models)、[DeepL](https://www.deepl.com/translator)、[Google](https://translate.google.com)、[有道词典](https://www.youdao.com/)、[腾讯](https://fanyi.qq.com/)、[Bing](https://www.bing.com/translator)、[百度](https://fanyi.baidu.com/)、[小牛翻译](https://niutrans.com/)、[彩云小译](https://fanyi.caiyunapp.com/)、[阿里翻译](https://translate.alibaba.com/)、[火山翻译](https://translate.volcengine.com/translate) 和 [豆包翻译](https://www.volcengine.com/docs/82379/1820188)。
+选中单词或词组后，ContextDict 会通过 macOS 辅助功能尝试取得它所在的句子。启用 AI 词典服务时，会要求服务返回：
 
-![Log](https://raw.githubusercontent.com/tisfeng/ImageBed/main/uPic/Log-1688378715.png)
+- 所选词或词组在当前语境中的准确含义；
+- 该含义与句子关系的简短解释；
+- 完整句子的翻译；
+- 仅在有助于区分时列出其他常见含义。
 
-<table>
-    <td> <img src="https://raw.githubusercontent.com/tisfeng/ImageBed/main/uPic/iShot_2023-05-28_16.32.18-1685262784.png">
-    <td> <img src="https://raw.githubusercontent.com/tisfeng/ImageBed/main/uPic/iShot_2023-05-28_16.32.26-1685262803.png">
-</table>
+该功能不会在缺少可靠上下文时猜测。来源应用无法提供完整句子和选区范围时，ContextDict 会自动回退到普通词典查询。
 
-![immerse-1686534718.gif](https://raw.githubusercontent.com/tisfeng/ImageBed/main/uPic/immerse-1686534718.gif)
+## 功能特点
 
-## 功能特性
+- 根据当前句子解释划选单词和词组
+- 提供上下文释义隐私开关；启用后，仅向你已启用的 AI 词典服务发送所选词和所在句子
+- 鼠标划词与快捷键划词
+- 文本翻译、截图 OCR 与静默 OCR
+- 集成苹果系统词典与系统翻译
+- 可配置 AI、翻译和 TTS 服务
+- 独立的 ContextDict 应用标识、Bundle ID 与 URL scheme
 
-- 🚀 开箱即用，自动识别输入语言
-- 🖱️ 鼠标自动划词和快捷键划词
-- 📸 OCR 截图翻译，静默截图 OCR
-- 🔊 多种 TTS 语音服务
-- 📚 支持 🍎 [苹果系统词典](./docs/zh/How-to-use-macOS-system-dictionary-in-Easydict.md) 和 [系统翻译](./docs/zh/How-to-use-macOS-system-translation-in-Easydict.md)
-- 🌐 支持 20+ 翻译服务（OpenAI、Gemini、DeepL、Google、Ollama、Groq 等）
-- 🗣️ 支持 48 种语言
-- 🔎 可根据所在句子解释所选单词或词组的语境义
+## 开始使用
 
-**如果觉得这个应用还不错，给个 [Star](https://github.com/tisfeng/Easydict) ⭐️ 支持一下吧 (^-^)**
+1. 在 macOS 13 或更高版本构建并启动 ContextDict。
+2. 为受支持的来源应用授予所需的辅助功能和 AppleScript 权限。
+3. 在设置中启用一个 AI 词典服务并配置其凭证。
+4. 在“设置 > 通用”中保持“上下文释义”开启。
+5. 在能通过辅助功能提供完整文本的应用中划选单词或词组。
 
-## 贡献
+首个独立 DMG 会在本地构建验证完成后发布到本仓库的 Releases 页面。
 
-如果你对这个项目感兴趣，欢迎提交 PR 参与贡献。我们的开发遵循以下流程：
+## 开发
 
-- **dev 分支**：最新的开发代码，可能包含正在开发中的功能
-- **main 分支**：稳定版本代码，会定期合并 dev 分支
-
-Bug 修复和功能实现请提交到 dev 分支；新功能或大的 UI 变动建议先开 issue 讨论。详见[完整贡献指南](./docs/zh/GUIDE.md#贡献指南)。
-
-### AI 辅助编程
-
-推荐使用 `Codex` 参与 Easydict 的 AI 辅助编程工作，可用于阅读代码、定位问题、生成补丁和重构实现。
-
-- 建议优先选择最新可用的 GPT 模型，例如 `GPT-5.4`。
-- 提交 PR 前，请自行检查 AI 生成的改动，确认功能正确、风格一致，并符合本仓库的贡献流程。
-
-#### AI 提交助手
-
-这个仓库支持使用 `Codex` 和 `Claude` 自动生成提交信息。
-
-- 请先暂存变更，再使用 `/git-commit`。
-- 该命令会基于 staged diff 生成 Angular 风格的英文提交信息，并提供简体中文预览。
-- 只有在你明确批准生成结果后，才会真正执行提交。
-
-## Issue/PR 处理说明
-
-开发者近期比较忙，通常只有周末才有时间集中处理 issue。我们会优先处理 PR（尤其是修复类 PR）。同时邮件和通知积压较多，部分反馈可能无法第一时间看到或回复，敬请理解。
-
-## 安装
-
-### 从源码构建
-
-ContextDict 目前尚未发布独立安装包，请按[开发者构建指南](./docs/zh/GUIDE.md#开发者构建)从此 fork 构建。需要使用 ContextDict 时，不应安装 EasyDict 的 Homebrew cask。
-
----
-
-## 使用方式
-
-| 使用方式 | 说明 | 预览 |
-| --- | --- | --- |
-| 输入翻译 | 按输入快捷键（默认 ⌥ + A），输入文本后回车翻译 | ![iShot_2023-01-20_11.28.46-1674185354](https://raw.githubusercontent.com/tisfeng/ImageBed/main/uPic/iShot_2023-01-20_11.28.46-1674185354.gif) |
-| 鼠标划词翻译 | 选中文本后出现查询图标，鼠标悬停即可翻译 | ![iShot_2023-01-20_11.01.35-1674183779](https://raw.githubusercontent.com/tisfeng/ImageBed/main/uPic/iShot_2023-01-20_11.01.35-1674183779.gif) |
-| 快捷键划词翻译 | 选中文本后按快捷键（默认 ⌥ + D）翻译 | ![iShot_2023-01-20_11.24.37-1674185125](https://raw.githubusercontent.com/tisfeng/ImageBed/main/uPic/iShot_2023-01-20_11.24.37-1674185125.gif) |
-| 截图翻译 | 按截图快捷键（默认 ⌥ + S）截取区域翻译 | ![iShot_2023-01-20_11.26.25-1674185209](https://raw.githubusercontent.com/tisfeng/ImageBed/main/uPic/iShot_2023-01-20_11.26.25-1674185209.gif) |
-| 静默截图 OCR   | 按下静默截图快捷键（默认 `⌥ + ⇧ + S`），截取需要 OCR 的区域，截图 OCR 结果将自动保存到剪贴板 | ![屏幕录制 2023-05-20 22 39 11](https://github.com/Jerry23011/Easydict/assets/89069957/c16f3c20-1748-411e-be04-11d8fe0e61af)                    |
-
----
-
-## 文档
-
-- 📖 [完整使用指南](./docs/zh/GUIDE.md) - 详细功能说明和配置方法
-- 🔧 [开发者构建指南](./docs/zh/GUIDE.md#开发者构建) - 从源码编译运行
-- 🍎 [如何使用 macOS 系统词典](./docs/zh/How-to-use-macOS-system-dictionary-in-Easydict.md)
-- 🍎 [如何使用 macOS 系统翻译](./docs/zh/How-to-use-macOS-system-translation-in-Easydict.md)
-- 🌍 [如何帮助翻译 Easydict](./docs/How-to-translate-Easydict-zh.md)
-
----
-
-## 致谢
-
-- 这个项目的灵感来自 [saladict](https://github.com/crimx/ext-saladict) 和 [Bob](https://github.com/ripperhe/Bob)，且初始版本是以 [Bob (GPL-3.0)](https://github.com/1xiaocainiao/Bob) 为基础开发。Easydict 在原项目上进行了许多改进和优化，很多功能和 UI 都参考了 Bob。
-- 截图功能是基于 [isee15](https://github.com/isee15) 的 [Capture-Screen-For-Multi-Screens-On-Mac](https://github.com/isee15/Capture-Screen-For-Multi-Screens-On-Mac)，并在此基础上进行了优化。
-- 鼠标划词功能参考了 [PopClip](https://pilotmoon.com/popclip/)。
+ContextDict 当前在 `dev` 分支开发。本地构建需要完整 Xcode，macOS Command Line Tools 不能替代。项目依赖和构建设置可参考上游的[开发者构建指南](./docs/zh/GUIDE.md#开发者构建)。
 
 ## 许可证与署名
 
-ContextDict 使用 [GPL-3.0](./LICENSE) 协议，基于 tisfeng 的 EasyDict 衍生。仓库保留 EasyDict 的版权声明与 GPL-3.0 许可证；ContextDict 的修改由 ph4ble 维护。
+ContextDict 使用 [GPL-3.0](./LICENSE) 协议，基于 tisfeng 原创并维护的 EasyDict 衍生。仓库保留 EasyDict 的版权声明、致谢与 GPL-3.0 义务；ContextDict 的新增修改由 ph4ble 维护。
 
-## 赞助支持
-
-Easydict 作为一个免费开源的非盈利项目，目前主要是作者个人在开发和维护，如果你喜欢这个项目，觉得它对你有帮助，可以考虑赞助支持一下这个项目，用爱发电，让它能够走得更远。
-
-感谢 [@CanglongCl](https://github.com/CanglongCl) 提供的苹果开发者账号，解决了应用 [签名问题](https://github.com/tisfeng/Easydict/issues/2)，让更多人能够方便地使用 Easydict。
-
-<a href="https://afdian.com/a/tisfeng"><img width="20%" src="https://pic1.afdiancdn.com/static/img/welcome/button-sponsorme.jpg" alt=""></a>
-
-<div>
-  <img src="https://raw.githubusercontent.com/tisfeng/ImageBed/main/uPic/IMG_4739-1684680971.JPG" width="30%">
-</div>
-
-感谢所有支持者的赞助，详情请查看 [赞助列表](./docs/zh/SPONSOR_LIST.md)。
-
----
-
-## Star History
-
-<a href="https://star-history.com/#tisfeng/easydict&Date">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=tisfeng/easydict&type=Date&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=tisfeng/easydict&type=Date" />
-    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=tisfeng/easydict&type=Date" />
-  </picture>
-</a>
+上游基线和修改范围见 [FORK_NOTICE.md](./FORK_NOTICE.md)。
